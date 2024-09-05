@@ -1,17 +1,15 @@
-import { unstable_cache } from "next/cache";
+import { headers } from "next/headers";
 import { Suspense } from "react";
 import { EmbeddedTweet, TweetNotFound, TweetSkeleton } from "react-tweet";
-import { getTweet as _getTweet } from "react-tweet/api";
+import { getTweet } from "react-tweet/api";
 
-const getTweet = unstable_cache(
-	async (id: string) => _getTweet(id),
-	["tweet"],
-	{ revalidate: 3600 * 24 },
-);
+export const experimental_ppr = true;
 
 const TweetPage = async ({ id }: { id: string }) => {
+	const h = headers();
+	const backupId = h.get("test");
 	try {
-		const tweet = await getTweet(id);
+		const tweet = await getTweet(id ?? backupId);
 		return tweet ? <EmbeddedTweet tweet={tweet} /> : <TweetNotFound />;
 	} catch (error) {
 		console.error(error);
