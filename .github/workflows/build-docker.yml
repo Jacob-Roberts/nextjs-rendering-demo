@@ -1,4 +1,4 @@
-name: CI
+name: Publish Docker Image
 
 on:
   release:
@@ -14,7 +14,7 @@ permissions:
 
 env:
   REGISTRY: ghcr.io
-  IMAGE_NAME: ${{ github.repository }}
+  IMAGE_NAME: ${{ github.repository }}/server
 
 jobs:
   docker:
