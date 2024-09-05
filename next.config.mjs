@@ -5,7 +5,7 @@ export default (phase) => {
 	/** @type {import('next').NextConfig} */
 	const nextConfig = {
 		output: "standalone",
-		// assetPrefix: isDev ? undefined : 'https://cdn.jakerob.pro',
+		assetPrefix: isDev ? undefined : "https://cdn-ppr.jakerob.pro",
 		experimental: {
 			ppr: "incremental",
 		},
