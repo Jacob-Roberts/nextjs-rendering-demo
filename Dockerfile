@@ -38,6 +38,8 @@ RUN \
 FROM base AS runner
 WORKDIR /app
 
+LABEL org.opencontainers.image.source https://github.com/Jacob-Roberts/nextjs-rendering-demo
+
 ENV NODE_ENV=production
 # Uncomment the following line in case you want to disable telemetry during runtime.
 # ENV NEXT_TELEMETRY_DISABLED=1
