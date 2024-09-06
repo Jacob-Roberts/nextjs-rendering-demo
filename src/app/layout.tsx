@@ -21,7 +21,12 @@ export default function RootLayout({
 				<Link href="/second" className="mr-6">
 					Second
 				</Link>
-				<Link href="/ppr">Tweets</Link>
+				<Link href="/ppr" className="mr-6">
+					Tweets
+				</Link>
+				<Link href="/blog" className="mr-6">
+					Blog
+				</Link>
 				{children}
 			</body>
 		</html>
