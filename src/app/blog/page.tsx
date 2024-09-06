@@ -7,7 +7,8 @@ export default async function Page() {
 		<main>
 			<h1>Blog Posts</h1>
 			<ul>
-				{posts.map((post) => (
+				{/* biome-ignore lint/suspicious/noExplicitAny: <explanation> */}
+				{posts.map((post: any) => (
 					<li key={post.id}>{post.title}</li>
 				))}
 			</ul>
