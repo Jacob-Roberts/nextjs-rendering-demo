@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export const revalidate = 3600; // invalidate every hour
 
 export default async function Page() {
@@ -9,7 +11,9 @@ export default async function Page() {
 			<ul>
 				{/* biome-ignore lint/suspicious/noExplicitAny: <explanation> */}
 				{posts.map((post: any) => (
-					<li key={post.id}>{post.title}</li>
+					<li key={post.id}>
+						<Link href={`/blog/${post.id}`}>{post.title}</Link>
+					</li>
 				))}
 			</ul>
 		</main>
